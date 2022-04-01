@@ -43,7 +43,6 @@ var saveTasks = function () {
 
 $(".list-group").on("click", "p", function () {
   var text = $(this).text();
-  console.log(text);
   var textInput = $("<textarea>").addClass("form-control").val(text);
   $(this).replaceWith(textInput);
   textInput.trigger("focus");
@@ -60,8 +59,50 @@ $(".list-group").on("blur", "textarea", function () {
   saveTasks();
 
   var taskP = $("<p>").addClass("m-1").text(text);
-  $(this).replaceWith(taskP)
+  $(this).replaceWith(taskP);
 });
+
+// ↓↓↓ Date picker ↓↓↓
+
+$(".list-group").on("click", "span", function () {
+  // get current text
+  var date = $(this).text().trim();
+  // create new input element
+  var dateInput = $("<input>")
+    .attr("type", "text")
+    .addClass("form-control")
+    .val(date);
+  // swap elements
+  $(this).replaceWith(dateInput);
+  // automatically apply focus on new element
+  dateInput.trigger("focus");
+});
+
+$(".list-group").on("blur", "input[type='text']", function () {
+  // get current contained text
+  var date = $(this).val().trim();
+
+  // get the ul's (parent) id attribute
+  var status = $(this).closest(".list-group").attr("id").replace("list-", "");
+
+  // get the position of the task in the list
+  var index = $(this).closest(".list-group-item").index();
+
+  // update task in ary and re-save to local
+  tasks[status][index].date = date;
+  saveTasks();
+
+  // recreate span with bootstrap classes
+  var taskSpan = $("<span>")
+    .addClass("badge badge-primary badge-pill")
+    .text(date);
+
+  // replace the input element with the new span element
+  $(this).replaceWith(taskSpan);
+});
+
+
+// ↑↑↑ Date picker end ↑↑↑
 
 // modal was triggered || "Pop-up"
 $("#task-form-modal").on("show.bs.modal", function () {
