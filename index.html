@@ -36,10 +36,45 @@
           quis iste?
         </p>
       </header>
+
       <main class="col-12 col-lg-9">
-        <div class="m-5">
-          <h2>To Do</h2>
-          <ul id="list-toDo" class="list-group"></ul>
+        <div class="m-5 row justify-content-around">
+          <div class="col-12 col-md-6 col-xl-3 mb-3">
+            <h2>To Do</h2>
+
+            <ul id="list-toDo" class="list-group"></ul>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-3 mb-3">
+            <h2>In Progress</h2>
+            <ul id="list-inProgress" class="list-group">
+              <li class="list-group-item">
+                <span class="badge badge-primary badge-pill">05/28/2020</span>
+                <p class="m-1">Sample of work in progress</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-3 mb-3">
+            <h2>In Review</h2>
+            <ul id="list-inReview" class="list-group">
+              <li class="list-group-item">
+                <span class="badge badge-primary badge-pill">05/28/2020</span>
+                <p class="m-1">Sample task in review</p>
+              </li>
+            </ul>
+          </div>
+          <!-- in review end -->
+          <!-- done start -->
+          <div class="col-12 col-md-6 col-xl-3 mb-3">
+            <h2>Done</h2>
+            <ul id="list-done" class="list-group">
+              <li class="list-group-item">
+                <span class="badge badge-primary badge-pill">05/28/2020</span>
+                <p class="m-1">Sample task that's done</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </main>
     </div>
@@ -103,8 +138,5 @@
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
-
-
-
 
 <!-- Updated from the RaspberryPi -->
