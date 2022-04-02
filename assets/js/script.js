@@ -101,7 +101,6 @@ $(".list-group").on("blur", "input[type='text']", function () {
   $(this).replaceWith(taskSpan);
 });
 
-
 // ↑↑↑ Date picker end ↑↑↑
 
 // modal was triggered || "Pop-up"
@@ -149,3 +148,6 @@ $("#remove-tasks").on("click", function () {
 
 // load tasks for the first time
 loadTasks();
+
+
+// Updated from the RaspberryPi
